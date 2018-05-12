@@ -7,42 +7,7 @@
 
 
 #import <Foundation/Foundation.h>
-
-
-//인터페이스 구현 : 선언
-@interface Fraction: NSObject
-
--(void) print;
--(void) setNumerator: (int) n;
--(void) setDenominator: (int) d;
-
-@end
-
-
-//interface에 선언한 것을 구체화한다. : 구현
-@implementation Fraction
-{
-    //인스턴스 변수
-    int numerator;
-    int denominator;
-}
-
--(void) print
-{
-    NSLog(@"%i/%i", numerator, denominator);
-}
-
--(void) setNumerator:(int)n
-{
-    numerator = n;
-}
-
--(void) setDenominator:(int)d
-{
-    denominator = d;
-}
-
-@end
+#import "Fraction.h"
 
 
 
@@ -60,12 +25,12 @@ int main(int argc, const char * argv[]) {
         //alloc 과 init을 동시에해준다
         Fraction *myfraction = [Fraction new];
         
-        
-        
         [myfraction setNumerator:1];
         [myfraction setDenominator:3];
         
         NSLog(@"The value of myFraction is:");
+        double result = [myfraction convertToNum];
+        NSLog(@"result: %f", result);
         [myfraction print];
     }
     
